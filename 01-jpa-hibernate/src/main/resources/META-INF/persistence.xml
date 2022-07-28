@@ -21,10 +21,10 @@
                 驱动，  javax.persistence.jdbc.driver
                 数据库地址   javax.persistence.jdbc.url
             -->
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="123456"/>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/springdata_jpa?characterEncoding=UTF-8"/>
+            <property name="javax.persistence.jdbc.user" value="grey"/>
+            <property name="javax.persistence.jdbc.password" value="greygrey"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://106.75.169.238:5432/test_db?currentSchema=public"/>
 
             <!--配置jpa实现方(hibernate)的配置信息
                 显示sql           ：   false|true
@@ -36,7 +36,7 @@
             -->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 
         </properties>
     </persistence-unit>
@@ -57,10 +57,10 @@
                 驱动，  javax.persistence.jdbc.driver
                 数据库地址   javax.persistence.jdbc.url
             -->
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="123456"/>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/springdata_jpa?characterEncoding=UTF-8"/>
+            <property name="javax.persistence.jdbc.user" value="grey"/>
+            <property name="javax.persistence.jdbc.password" value="greygrey"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://106.75.169.238:5432/test_db?currentSchema=public"/>
 
             <!--配置jpa实现方(openjpa)的配置信息
             -->

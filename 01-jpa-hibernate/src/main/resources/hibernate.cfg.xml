@@ -8,8 +8,8 @@
  <!--   <property name="connection.driver_class">com.mysql.jdbc.Driver</property> -->
         <property name="connection.driver_class">org.postgresql.Driver</property> 
         <property name="connection.url">jdbc:postgresql://106.75.169.238:5432/test_db?currentSchema=public</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">RootRoot</property>
+        <property name="connection.username">grey</property>
+        <property name="connection.password">greygrey</property>
 
         <!-- 会在日志中记录sql 默认false-->
         <property name="show_sql">true</property>
@@ -21,7 +21,8 @@
             create    创建-->
         <property name="hbm2ddl.auto">update</property>
         <!-- 配置方言：选择数据库类型 -->
-        <property name="dialect">org.hibernate.dialect.MySQL57InnoDBDialect</property>
+        <!--<property name="dialect">org.hibernate.dialect.MySQL57InnoDBDialect</property>-->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
         <!--指定哪些pojo 需要进行ORM映射-->
         <mapping class="com.tuling.pojo.Customer"></mapping>

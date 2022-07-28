@@ -37,11 +37,14 @@ public class HibernateTest {
             Transaction tx = session.beginTransaction();
 
             Customer customer = new Customer();
-            customer.setCustName("徐庶1");
-
+            customer.setCustName("徐庶1111111");
+            customer.setCustAddress("地址");
             session.save(customer);
-
             tx.commit();
+
+            System.out.println(customer);
+            System.out.println(customer.getCustId());
+
         }
 
     }
@@ -54,7 +57,7 @@ public class HibernateTest {
             Transaction tx = session.beginTransaction();
 
 
-            Customer customer = session.find(Customer.class, 1L);
+            Customer customer = session.find(Customer.class, 202L);
             System.out.println("=====================");
             System.out.println(customer);
 
@@ -69,8 +72,6 @@ public class HibernateTest {
         // session进行持久化操作
         try(Session session = sf.openSession()){
             Transaction tx = session.beginTransaction();
-
-
             Customer customer = session.load(Customer.class, 1L);
             System.out.println("=====================");
             System.out.println(customer);
@@ -88,8 +89,8 @@ public class HibernateTest {
             Transaction tx = session.beginTransaction();
 
             Customer customer = new Customer();
-            //customer.setCustId(1L);
-            customer.setCustName("徐庶");
+            customer.setCustId(1L);
+            customer.setCustName("徐庶22222");
 
             // 插入session.save()
             // 更新session.update();

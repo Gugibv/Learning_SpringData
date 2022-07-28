@@ -24,7 +24,8 @@ public class Customer {
      *      name：数据库表中字段的名称
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO,generator = "customer_seq")
+    @SequenceGenerator(name ="customer_seq" ,sequenceName = "customer_id_seq",allocationSize = 1)
     @Column(name = "id")
     private Long custId; //客户的主键
 
