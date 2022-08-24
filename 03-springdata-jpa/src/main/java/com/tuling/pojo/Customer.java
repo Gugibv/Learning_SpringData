@@ -1,6 +1,5 @@
 package com.tuling.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -53,7 +52,6 @@ public class Customer {
         值= 另一方关联属性名
 
     **/
-    @JsonIgnore
     @OneToOne(mappedBy = "customer",
             cascade = CascadeType.PERSIST,fetch = FetchType.LAZY,orphanRemoval=true,optional=false)
     // 设置外键的字段名
@@ -63,13 +61,11 @@ public class Customer {
 
     // 一对多
     // fetch 默认是懒加载   懒加载的优点（ 提高查询性能）
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name="customer_id")
     private List<Message> messages;
 
     // 单向多对多
-    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     /*中间表需要通过@JoinTable来维护外键：（不设置也会自动生成）
     * name 指定中间表的名称
@@ -83,7 +79,6 @@ public class Customer {
     )
     private List<Role> roles;
 
-    @JsonIgnore
     private @Version Long version;
 
 

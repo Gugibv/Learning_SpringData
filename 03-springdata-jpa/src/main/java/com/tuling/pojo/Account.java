@@ -1,6 +1,5 @@
 package com.tuling.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,7 +25,6 @@ public class Account {
     private String username;
     private String password;
 
-    @JsonIgnore
     @OneToOne
     @JoinColumn(name="customer_id")
     private Customer customer;

@@ -55,15 +55,14 @@ public class OneToOneTest {
 
     @Test
     public void testD(){
-        repository.deleteById(1L);
+        repository.deleteById(501L);
     }
 
     @Test
     public void testU(){
 
         Customer customer = new Customer();
-        customer.setCustId(16L);
-        customer.setCustName("徐庶");
+        customer.setCustName("徐庶1");
         customer.setAccount(null);
         repository.save(customer);
     }

@@ -1,6 +1,5 @@
 package com.tuling.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -35,7 +34,6 @@ public class Role {
     public Role() {
     }
 
-    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Role> roles;
 }

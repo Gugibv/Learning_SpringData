@@ -1,6 +1,5 @@
 package com.tuling.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -32,18 +31,8 @@ public class Message {
     }
 
     // 多对一
-    @JsonIgnore
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     @JoinColumn(name="customer_id")
     private Customer customer;
 
-    @Override
-    public String toString() {
-        return "Message{" +
-                "id=" + id +
-                ", info='" + info + '\'' +
-                ", customerId=" + customer.getCustId() +
-                ", customerName=" + customer.getCustName() +
-                '}';
-    }
 }
