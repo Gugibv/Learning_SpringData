@@ -41,8 +41,6 @@
         </properties>
     </persistence-unit>
 
-
-
     <persistence-unit name="openJpa" transaction-type="RESOURCE_LOCAL">
         <!--jpa的实现方式 -->
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>

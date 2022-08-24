@@ -17,10 +17,7 @@ import java.util.Optional;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.startsWith;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
+
 @ContextConfiguration(classes = SpringDataJPAConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class JpqlTest {
@@ -37,25 +34,25 @@ public class JpqlTest {
 
     @Test
     public  void testU(){
-        int result = repository.updateCustomer("王五", 4L);
+        int result = repository.updateCustomer("王五", 1L);
         System.out.println(result);
     }
 
     @Test
     public  void testD(){
-        int result = repository.deleteCustomer(10L);
+        int result = repository.deleteCustomer(1L);
         System.out.println(result);
     }
 
     @Test
     public  void testC(){
-        int result = repository.insertCustomerBySelect(4L);
+        int result = repository.insertCustomerBySelect(261L);
         System.out.println(result);
     }
 
     @Test
     public  void testR_sql(){
-        List<Customer> customer = repository.findCustomerByCustNameBySql("徐庶");
+        List<Customer> customer = repository.findCustomerByCustNameBySql("李四");
         System.out.println(customer);
 
     }

@@ -12,13 +12,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Arrays;
 import java.util.Optional;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
+
 // 基于junit4 spring单元测试
-//@ContextConfiguration("/spring.xml")
-@ContextConfiguration(classes = SpringDataJPAConfig.class)
+@ContextConfiguration("/spring.xml")
+//@ContextConfiguration(classes = SpringDataJPAConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class SpringdataJpaTest {
 
@@ -28,7 +25,7 @@ public class SpringdataJpaTest {
 
     @Test
     public  void testR(){
-        Optional<Customer> byId = repository.findById(1L);
+        Optional<Customer> byId = repository.findById(102L);
 
         System.out.println(byId.orElse(null));
     }
@@ -48,7 +45,7 @@ public class SpringdataJpaTest {
 
 
         Customer customer = new Customer();
-        customer.setCustId(3L);
+        customer.setCustId(381L);
         customer.setCustName("李四");
 
         repository.delete(customer);
@@ -58,8 +55,7 @@ public class SpringdataJpaTest {
     @Test
     public  void testFindAll(){
 
-
-        Iterable<Customer> allById = repository.findAllById(Arrays.asList(1L, 7L, 8L));
+        Iterable<Customer> allById = repository.findAllById(Arrays.asList(82L, 162L, 182L));
 
         System.out.println(allById);
     }

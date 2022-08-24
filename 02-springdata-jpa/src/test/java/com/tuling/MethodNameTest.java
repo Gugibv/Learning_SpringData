@@ -12,10 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
 @ContextConfiguration(classes = SpringDataJPAConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MethodNameTest {
@@ -32,13 +28,13 @@ public class MethodNameTest {
 
     @Test
     public  void test02() {
-        boolean exists = repository.existsByCustName("xxx");
+        boolean exists = repository.existsByCustName("李四");
         System.out.println(exists);
     }
 
     @Test
     public  void test03() {
-        int exists = repository.deleteByCustId(12L);
+        int exists = repository.deleteByCustId(22L);
         System.out.println(exists);
     }
 

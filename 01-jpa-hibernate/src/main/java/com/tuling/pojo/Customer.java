@@ -2,10 +2,6 @@ package com.tuling.pojo;
 
 import javax.persistence.*;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
 @Entity     // 作为hibernate 实体类
 @Table(name = "tb_customer")       // 映射的表明
 public class Customer {

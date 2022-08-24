@@ -16,10 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
+
 @ContextConfiguration(classes = SpringDataJPAConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ManyToOneTest {
@@ -49,8 +46,8 @@ public class ManyToOneTest {
     @Test
     public void testR(){
         Customer customer = new Customer();
-        customer.setCustId(1L);
-        customer.setCustName("xxx");
+        customer.setCustId(421L);
+        customer.setCustName("司马懿");
 
         List<Message> messages = repository.findByCustomer(customer);
         // 隐式调用toString()

@@ -19,10 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
 @ContextConfiguration(classes = SpringDataJPAConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ManyToManyTest {
@@ -58,11 +54,7 @@ public class ManyToManyTest {
     @Test
     @Transactional(readOnly = true)
     public void testR() {
-
-
-        System.out.println(repository.findById(14L));
-
-        //repository.save(customer);
+        System.out.println(repository.findById(401L));
     }
 
 

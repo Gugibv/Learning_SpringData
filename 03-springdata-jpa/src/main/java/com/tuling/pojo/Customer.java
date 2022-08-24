@@ -1,5 +1,6 @@
 package com.tuling.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,10 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
+
 @Entity     // 作为hibernate 实体类
 @Table(name = "tb_customer")       // 映射的表明
 @Data
@@ -24,7 +22,8 @@ import java.util.Set;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO,generator = "customer_seq")
+    @SequenceGenerator(name ="customer_seq" ,sequenceName = "customer_id_seq",allocationSize = 1)
     @Column(name = "id")
     private Long custId; //客户的主键
 
@@ -35,10 +34,11 @@ public class Customer {
     private String custAddress;//客户地址
 
 
-    // 单向关联  一对一
-    /*
-    * cascade 设置关联操作
-    *    ALL,       所有持久化操作
+
+    /* 单向关联  一对一
+
+      cascade 设置关联操作
+        ALL,       所有持久化操作
         PERSIST     只有插入才会执行关联操作
         MERGE,      只有修改才会执行关联操作
         REMOVE,     只有删除才会执行关联操作
@@ -51,9 +51,11 @@ public class Customer {
             true 可以为null(默认 ) false 不能为null
       mappedBy  将外键约束执行另一方维护(通常在双向关联关系中，会放弃一方的外键约束）
         值= 另一方关联属性名
+
     **/
+    @JsonIgnore
     @OneToOne(mappedBy = "customer",
-            cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval=true/*,optional=false*/)
+            cascade = CascadeType.PERSIST,fetch = FetchType.LAZY,orphanRemoval=true,optional=false)
     // 设置外键的字段名
     @JoinColumn(name="account_id")
     private Account account;
@@ -61,22 +63,13 @@ public class Customer {
 
     // 一对多
     // fetch 默认是懒加载   懒加载的优点（ 提高查询性能）
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name="customer_id")
     private List<Message> messages;
 
-//    @Override
-//    public String toString() {
-//        return "Customer{" +
-//                "custId=" + custId +
-//                ", custName='" + custName + '\'' +
-//                ", custAddress='" + custAddress + '\'' +
-//                ", account=" + account +
-//                ", messages=" + messages.toString() +   // 会用到懒加载的数据， 用到的时候就会执行懒加载查询
-//                '}';
-//    }
-
     // 单向多对多
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     /*中间表需要通过@JoinTable来维护外键：（不设置也会自动生成）
     * name 指定中间表的名称
@@ -90,6 +83,7 @@ public class Customer {
     )
     private List<Role> roles;
 
+    @JsonIgnore
     private @Version Long version;
 
 

@@ -17,10 +17,7 @@ import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
+
 @ContextConfiguration(classes = SpringDataJPAConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class SpecificationTest {
@@ -39,9 +36,6 @@ public class SpecificationTest {
                 // root from Customer  , 获取列
                 // CriteriaBuilder where 设置各种条件  (> < in ..)
                 // query  组合（order by , where)
-
-
-
                 return null;
             }
         });
@@ -70,7 +64,7 @@ public class SpecificationTest {
                 Path<Object> custAddress = root.get("custAddress");
 
                 // 参数1 ：为哪个字段设置条件   参数2：值
-                Predicate predicate = cb.equal(custAddress, "234");
+                Predicate predicate = cb.equal(custAddress, "BEIJING");
 
                 return predicate;
             }
@@ -100,8 +94,8 @@ public class SpecificationTest {
                 Path<String> custAddress = root.get("custAddress");
 
                 // 参数1 ：为哪个字段设置条件   参数2：值
-                Predicate custAddressP = cb.equal(custAddress, "234");
-                Predicate custIdP = cb.greaterThan(custId, 0L);
+                Predicate custAddressP = cb.equal(custAddress, "BEIJING");
+                Predicate custIdP = cb.greaterThan(custId, 100L);
                 CriteriaBuilder.In<String> in = cb.in(custName);
                 in.value("李四").value("徐庶");
 

@@ -20,11 +20,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
 @ContextConfiguration(classes = SpringDataJPAConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class QueryDSLTest {
@@ -38,7 +33,7 @@ public class QueryDSLTest {
         QCustomer customer = QCustomer.customer;
 
         // 通过Id查找
-        BooleanExpression eq = customer.custId.eq(1L);
+        BooleanExpression eq = customer.custId.eq(62L);
 
         System.out.println(repository.findOne(eq));
 
@@ -113,7 +108,7 @@ public class QueryDSLTest {
         // 构建基于QueryDSL的查询
         JPAQuery<Tuple> tupleJPAQuery = factory.select(customer.custId, customer.custName)
                 .from(customer)
-                .where(customer.custId.eq(1L))
+                .where(customer.custId.eq(122L))
                 .orderBy(customer.custId.desc());
 
         // 执行查询
@@ -135,10 +130,12 @@ public class QueryDSLTest {
 
         // 构建基于QueryDSL的查询
         JPAQuery<Long> longJPAQuery = factory.select(
-                        customer.custId.sum())
+                        customer.custId
+               //             .sum()
+               )
                 .from(customer)
-                //.where(customer.custId.eq(1L))
-                .orderBy(customer.custId.desc());
+               //     .where(customer.custId.eq(1L))
+                      .orderBy(customer.custId.desc());
 
         // 执行查询
         List<Long> fetch = longJPAQuery.fetch();

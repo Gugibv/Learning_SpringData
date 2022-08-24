@@ -14,10 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
+
 @ContextConfiguration(classes = SpringDataJPAConfig.class)
 @RunWith(SpringJUnit4ClassRunner.class)
 public class QBETest {
@@ -54,7 +51,7 @@ public class QBETest {
 
         // 查询条件
         Customer customer=new Customer();
-        customer.setCustName("庶");
+        customer.setCustName("徐庶1");
         customer.setCustAddress("a");
 
         // 通过匹配器 对条件行为进行设置

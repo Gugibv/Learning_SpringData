@@ -1,12 +1,11 @@
 package com.tuling.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
+/**
  * 一（客户）对多（信息）
  */
 @Entity
@@ -33,6 +32,7 @@ public class Message {
     }
 
     // 多对一
+    @JsonIgnore
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     @JoinColumn(name="customer_id")
     private Customer customer;

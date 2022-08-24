@@ -18,10 +18,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Optional;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
+
 @Configuration          // 标记当前类为配置类   =xml配文件
 @EnableJpaRepositories(basePackages="com.tuling.repositories")  // 启动jpa    <jpa:repositories
 @EnableTransactionManagement    // 开启事务
@@ -39,12 +36,11 @@ public class SpringDataJPAConfig {
     * */
     @Bean
     public DataSource dataSource() {
-
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUsername("root");
-        dataSource.setPassword("rootroot");
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/springdata_jpa?characterEncoding=UTF-8&verifyServerCertificate=false&useSSL=true");
+        dataSource.setUsername("grey");
+        dataSource.setPassword("greygrey");
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql://106.75.169.238:5432/test_db?currentSchema=public");
         return  dataSource;
 
     }

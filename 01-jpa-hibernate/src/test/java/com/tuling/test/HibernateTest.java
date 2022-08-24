@@ -12,10 +12,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-/***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
- */
+
 public class HibernateTest {
 
     // Session工厂  Session:数据库会话  代码和数据库的一个桥梁

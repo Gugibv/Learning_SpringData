@@ -1,5 +1,6 @@
 package com.tuling.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,8 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 /***
- * @Author 徐庶   QQ:1092002729
- * @Slogan 致敬大师，致敬未来的你
  *
  * 多（用户）对多（角色）
  */
@@ -36,7 +35,7 @@ public class Role {
     public Role() {
     }
 
-
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Role> roles;
 }
