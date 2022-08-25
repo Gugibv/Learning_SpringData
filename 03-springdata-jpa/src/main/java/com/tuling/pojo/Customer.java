@@ -1,6 +1,9 @@
 package com.tuling.pojo;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -16,7 +19,6 @@ import java.util.Set;
 
 @Entity     // 作为hibernate 实体类
 @Table(name = "tb_customer")       // 映射的表明
-@Data
 @EntityListeners(AuditingEntityListener.class)
 public class Customer {
 
@@ -24,12 +26,18 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "customer_seq")
     @SequenceGenerator(name ="customer_seq" ,sequenceName = "customer_id_seq",allocationSize = 1)
     @Column(name = "id")
+    @Getter
+    @Setter
     private Long custId; //客户的主键
 
     @Column(name = "cust_name")
+    @Getter
+    @Setter
     private String custName;//客户名称
 
     @Column(name="cust_address")
+    @Getter
+    @Setter
     private String custAddress;//客户地址
 
 
@@ -56,6 +64,8 @@ public class Customer {
             cascade = CascadeType.PERSIST,fetch = FetchType.LAZY,orphanRemoval=true,optional=false)
     // 设置外键的字段名
     @JoinColumn(name="account_id")
+    @Getter
+    @Setter
     private Account account;
 
 
@@ -63,6 +73,8 @@ public class Customer {
     // fetch 默认是懒加载   懒加载的优点（ 提高查询性能）
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name="customer_id")
+    @Getter
+    @Setter
     private List<Message> messages;
 
     // 单向多对多
@@ -77,7 +89,10 @@ public class Customer {
             joinColumns = {@JoinColumn(name="c_id")},
             inverseJoinColumns = {@JoinColumn(name="r_id")}
     )
+    @Getter
+    @Setter
     private List<Role> roles;
+
 
     private @Version Long version;
 
@@ -100,4 +115,16 @@ public class Customer {
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     protected Date dateModified = new Date();
+
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "custId=" + custId +
+                ", custName='" + custName + '\'' +
+                ", custAddress='" + custAddress + '\'' +
+         //       ", account=" + account +
+                ", messages=" + messages.toString() +   // 会用到懒加载的数据， 用到的时候就会执行懒加载查询
+                '}';
+    }
 }

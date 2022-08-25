@@ -50,7 +50,7 @@ public class OneToOneTest {
     public void testR(){
         Optional<Customer> customer = repository.findById(461L);  // 只查询出客户， session关闭
         System.out.println("==========");
-        System.out.println(customer.get());  // toString
+        System.out.println(customer.toString());  // toString
     }
 
     @Test
