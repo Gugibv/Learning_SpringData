@@ -46,9 +46,9 @@ public class ManyToOneTest {
     @Test
     public void testR(){
         Customer customer = new Customer();
-        customer.setCustId(421L);
-        customer.setCustName("司马懿");
-
+        customer.setCustId(841L);
+        customer.setCustName("司马懿"); // 不会起作用，只会根据客户ID查询
+        System.out.println("hello:"+customer);
         List<Message> messages = repository.findByCustomer(customer);
         // 隐式调用toString()
         System.out.println(messages);

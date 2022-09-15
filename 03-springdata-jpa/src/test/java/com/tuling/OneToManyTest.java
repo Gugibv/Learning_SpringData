@@ -46,7 +46,7 @@ public class OneToManyTest {
     public void testR(){
         // 懒加载过程：
         // 1.findById  只会查询Customer 和其他关联的立即加载
-        Optional<Customer> customer = repository.findById(1L);
+        Optional<Customer> customer = repository.findById(801L);
         System.out.println("=====================");
         // 由于输出， 会自动调用customer.toString()
         System.out.println(customer);
@@ -58,9 +58,7 @@ public class OneToManyTest {
     // 插入
     @Test
     public void testD(){
-
-         repository.deleteById(2L);
-
+         repository.deleteById(801L);
     }
 
 
@@ -70,8 +68,8 @@ public class OneToManyTest {
     @Commit
     public void testU(){
 
-        Optional<Customer> customer = repository.findById(19L);
+        Optional<Customer> customer = repository.findById(781L);
         customer.get().setCustName("xxx");
-
+        System.out.println(customer.get().getCustName());
     }
 }

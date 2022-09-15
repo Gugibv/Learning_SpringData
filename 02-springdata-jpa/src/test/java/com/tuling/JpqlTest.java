@@ -6,16 +6,10 @@ import com.tuling.repositories.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
-
-import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
-import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.startsWith;
 
 
 @ContextConfiguration(classes = SpringDataJPAConfig.class)
@@ -28,7 +22,7 @@ public class JpqlTest {
 
     @Test
     public  void testR(){
-        List<Customer> customer = repository.findCustomerByCustName("李四");
+        List<Customer> customer = repository.findCustomerByCustName("徐庶");
         System.out.println(customer);
     }
 

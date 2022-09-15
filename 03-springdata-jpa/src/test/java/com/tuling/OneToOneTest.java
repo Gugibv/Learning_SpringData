@@ -62,7 +62,7 @@ public class OneToOneTest {
     public void testU(){
 
         Customer customer = new Customer();
-        customer.setCustName("徐庶1");
+        customer.setCustName("徐庶9999999999991");
         customer.setAccount(null);
         repository.save(customer);
     }

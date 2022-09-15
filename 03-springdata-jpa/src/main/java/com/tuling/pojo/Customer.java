@@ -1,7 +1,5 @@
 package com.tuling.pojo;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
@@ -11,10 +9,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 
 @Entity     // 作为hibernate 实体类
@@ -45,7 +41,7 @@ public class Customer {
     /* 单向关联  一对一
 
       cascade 设置关联操作
-        ALL,       所有持久化操作
+        ALL,        所有持久化操作
         PERSIST     只有插入才会执行关联操作
         MERGE,      只有修改才会执行关联操作
         REMOVE,     只有删除才会执行关联操作
@@ -60,8 +56,7 @@ public class Customer {
         值= 另一方关联属性名
 
     **/
-    @OneToOne(mappedBy = "customer",
-            cascade = CascadeType.PERSIST,fetch = FetchType.LAZY,orphanRemoval=true,optional=false)
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.PERSIST,fetch = FetchType.EAGER,orphanRemoval=true,optional=true)
     // 设置外键的字段名
     @JoinColumn(name="account_id")
     @Getter
@@ -124,7 +119,7 @@ public class Customer {
                 ", custName='" + custName + '\'' +
                 ", custAddress='" + custAddress + '\'' +
          //       ", account=" + account +
-                ", messages=" + messages.toString() +   // 会用到懒加载的数据， 用到的时候就会执行懒加载查询
+         //       ", messages=" + messages.toString() +   // 会用到懒加载的数据， 用到的时候就会执行懒加载查询
                 '}';
     }
 }
