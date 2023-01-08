@@ -25,7 +25,7 @@ public class SpringdataJpaTest {
 
     @Test
     public  void testR(){
-        Optional<Customer> byId = repository.findById(481L);
+        Optional<Customer> byId = repository.findById(1L);
 
         System.out.println(byId.orElse(null));
     }

@@ -46,7 +46,7 @@ public class OneToManyTest {
     public void testR(){
         // 懒加载过程：
         // 1.findById  只会查询Customer 和其他关联的立即加载
-        Optional<Customer> customer = repository.findById(801L);
+        Optional<Customer> customer = repository.findById(6L);
         System.out.println("=====================");
         // 由于输出， 会自动调用customer.toString()
         System.out.println(customer);

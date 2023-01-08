@@ -33,7 +33,7 @@ public class QueryDSLTest {
         QCustomer customer = QCustomer.customer;
 
         // 通过Id查找
-        BooleanExpression eq = customer.custId.eq(62L);
+        BooleanExpression eq = customer.custId.eq(1L);
 
         System.out.println(repository.findOne(eq));
 

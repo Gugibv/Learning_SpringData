@@ -118,8 +118,8 @@ public class Customer {
                 "custId=" + custId +
                 ", custName='" + custName + '\'' +
                 ", custAddress='" + custAddress + '\'' +
-         //       ", account=" + account +
-         //       ", messages=" + messages.toString() +   // 会用到懒加载的数据， 用到的时候就会执行懒加载查询
+                ", account=" + account +
+          //      ", messages=" + messages.toString() +   // 会用到懒加载的数据， 用到的时候就会执行懒加载查询
                 '}';
     }
 }

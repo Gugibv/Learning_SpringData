@@ -48,7 +48,7 @@ public class OneToOneTest {
     // 加了事务后， 就能让session直到事务方法执行完毕后才会关闭
     @Transactional(readOnly = true)
     public void testR(){
-        Optional<Customer> customer = repository.findById(461L);  // 只查询出客户， session关闭
+        Optional<Customer> customer = repository.findById(3L);  // 只查询出客户， session关闭
         System.out.println("==========");
         System.out.println(customer.toString());  // toString
     }

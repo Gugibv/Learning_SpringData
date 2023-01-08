@@ -63,4 +63,13 @@ public class Message {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", info='" + info + '\'' +
+                ", customer=" + customer +
+                '}';
+    }
 }

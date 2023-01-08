@@ -46,12 +46,16 @@ public class ManyToOneTest {
     @Test
     public void testR(){
         Customer customer = new Customer();
-        customer.setCustId(841L);
+        customer.setCustId(6L);
         customer.setCustName("司马懿"); // 不会起作用，只会根据客户ID查询
         System.out.println("hello:"+customer);
         List<Message> messages = repository.findByCustomer(customer);
         // 隐式调用toString()
-        System.out.println(messages);
+        System.out.println(messages); // 报错：object references an unsaved transient instance -
+        // save the transient instance before flushing: com.tuling.pojo.Customer
+
+        // 解决：Spring-data jpa没有提供多表关联操作的扩展，实际上还是用的jpa的规范的扩展-hibernet的实现
+        // 官网地址：https://docs.jboss.org/hibernate/orm/5.5/userguide/html_single/Hibernate_User_Guide.html#associations
     }
 
 

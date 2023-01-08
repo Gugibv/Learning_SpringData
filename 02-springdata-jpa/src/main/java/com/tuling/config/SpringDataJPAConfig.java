@@ -32,12 +32,12 @@ public class SpringDataJPAConfig {
     * */
     @Bean
     public DataSource dataSource() {
-
+        System.out.println("Config dataSource.....");
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUsername("grey");
         dataSource.setPassword("greygrey");
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://106.75.169.238:5432/test_db?currentSchema=public");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/test_db?currentSchema=public");
 
         return  dataSource;
 

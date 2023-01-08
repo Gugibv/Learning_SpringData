@@ -54,7 +54,7 @@ public class HibernateTest {
             Transaction tx = session.beginTransaction();
 
 
-            Customer customer = session.find(Customer.class, 202L);
+            Customer customer = session.find(Customer.class, 2L);
             System.out.println("=====================");
             System.out.println(customer);
 

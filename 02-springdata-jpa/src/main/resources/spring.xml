@@ -34,7 +34,7 @@
         <property name="username" value="grey"/>
         <property name="password" value="greygrey"/>
         <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://106.75.169.238:5432/test_db?currentSchema=public"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/test_db?currentSchema=public"/>
     </bean>
 
     <!--声明式事务-->
