@@ -44,7 +44,7 @@ public class OneToOneTest {
     // 插入
     @Test
     // 为什么懒加载要配置事务 ：
-    // 当通过repository调用完查询方法，session就会立即关闭， 一旦session你就不能查询，
+    // 当通过repository调用完查询方法，session就会立即关闭， 一旦session关闭你就不能查询，
     // 加了事务后， 就能让session直到事务方法执行完毕后才会关闭
     @Transactional(readOnly = true)
     public void testR(){
@@ -62,6 +62,7 @@ public class OneToOneTest {
     public void testU(){
 
         Customer customer = new Customer();
+        customer.setCustId(1L);
         customer.setCustName("徐庶9999999999991");
         customer.setAccount(null);
         repository.save(customer);
