@@ -13,6 +13,7 @@
         <module>02-springdata-jpa</module>
         <module>03-springdata-jpa</module>
         <module>04-springdata-jpa</module>
+        <module>customertype-jpa</module>
     </modules>
 
 

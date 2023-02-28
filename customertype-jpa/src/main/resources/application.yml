@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url:  jdbc:postgresql://localhost:5432/test_db?currentSchema=public&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username:  grey
+    password:  greygrey
+    max-idle:  100
+    max-wait:  100000
+    min-idle:  5
+    initial-size:  5
+    validation-query:  SELECT 1
+    test-on-borrow:  true
+    test-while-idle:  true
+    time-between-eviction-runs-millis:  18800
+    jdbc-interceptors:  ConnectionState;SlowQueryReport(threshold=1000)
+  jpa:
+    properties.hibernate.hbm2ddl.auto: update
+    show-sql: true
