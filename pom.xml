@@ -5,14 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.tuling.springdata</groupId>
-    <artifactId>springdata</artifactId>
+    <artifactId>Learning_SpringData</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
-        <module>01-jpa-hibernate</module>
-        <module>02-springdata-jpa</module>
-        <module>03-springdata-jpa</module>
-        <module>04-springdata-jpa</module>
+        <module>A1-jpa-hibernate</module>
+        <module>A2-springdata-jpa</module>
+        <module>A3-springdata-jpa</module>
+        <module>A4-springdata-jpa</module>
+        <module>A5-springboot-jpa</module>
     </modules>
 
 
